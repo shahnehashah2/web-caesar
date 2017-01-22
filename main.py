@@ -46,9 +46,13 @@ def encrypt(mess, rot):
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         heading = '<h1>Web Caesar</h1>'
-        content = heading + '<form>Rot: <input type = "number" name = "rot"><br>Text area:<br><input type = "text" name = "message"><br><input type = "submit"></form>'
+        content = heading + '''<form method = "post"><strong>Rot </strong><input type = "number" name = "rot"><br>
+                <h4>Message</h4>
+                <textarea name = "text" style = "height:100px; width:400px;">
+                </textarea><br>
+                <input type = "submit"></form>'''
         self.response.write(content)
-    def post(self):
+
 
 
 app = webapp2.WSGIApplication([
