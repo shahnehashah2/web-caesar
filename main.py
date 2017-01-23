@@ -1,5 +1,6 @@
 import webapp2
 import caesar
+import cgi
 
 def build_page(textareaContent = ""):
     heading = '<h1>Web Caesar</h1>'
@@ -19,7 +20,8 @@ class MainHandler(webapp2.RequestHandler):
     def post(self):
         encrpytedMsg = caesar.encrypt(self.request.get("message"),
                                     self.request.get("rot"))
-        content = build_page(encrpytedMsg)
+        escapedMsg = cgi.escape(encrpytedMsg)
+        content = build_page(escapedMsg)
         self.response.write(content)
 
 app = webapp2.WSGIApplication([
