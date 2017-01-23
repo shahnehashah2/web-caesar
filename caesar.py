@@ -15,7 +15,7 @@ def rotate_character(char, rot):
         cipher = chr(((alphabet_position(char) + rot) % 26) + 97)
     return cipher
 
-def encrypt(mess, rot):
+def encrypt(mess, rot=13):
     """Use Caesar Encryption to encrypt the message"""
     rot = int(rot)
     cipherText = ''
